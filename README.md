@@ -11,11 +11,11 @@ Author: Alecsander Guimarães Rodrigues
 - [Summary](#summary)
 - [Creating the containers](#creating-the-containers)
 - [Creating the virtual environment](#creating-the-virtual-environment)
-- [Using Kakfa](#using-kakfa)
+- [Using Kafka](#using-kafka)
 
 ## Summary
 
-This repository contains some examples of how to use Kafka, like how to create a topic, a producer and a consumer. For that, you must have installed Docker, if you yet don't have Docker installed, check the [website](https://docs.docker.com/get-docker/).
+This repository contains some examples of how to use Kafka, like how to create a topic, a producer and a consumer. For that, you must have installed Docker, if you don't have Docker installed yet, check the [website](https://docs.docker.com/get-docker/).
 
 If you want to learn more about Kafka, you can check out this [repository](https://github.com/confluentinc/confluent-kafka-python) or the [Introduction to Python for Apache Kafka](https://developer.confluent.io/courses/kafka-python/intro/). 
 
@@ -35,15 +35,21 @@ docker-compose -f docker-compose.yml down
 
 For this project, if you have poetry installed, follow the instructions below:
 
-```bash
-# Create the virtual environment and install all dependencies
+```sh
+# Install Poetry using the official installer
+curl -sSL https://install.python-poetry.org | python3 -
+# Navigate to your project's directory
+cd your_project_directory
+# Install the dependencies
 poetry install
 # Activate the virtual environment
 poetry shell
 ```
 
+You can also check the official documentation [here](https://python-poetry.org/docs/), if you would like to install it.
+
 If you don't have, you can use venv:
-```bash
+```sh
 # if you use macOS/Unix
 python3 -m venv .venv
 source .venv/bin/activate
@@ -53,7 +59,8 @@ py -m venv .venv
 .venv\bin\Activate.bat
 py -m pip install -r requirements.txt
 ```
-## Using Kakfa
+
+## Using Kafka
 
 Below are some examples of how you can use Kafka.
 
