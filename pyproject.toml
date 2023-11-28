@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "kafka-docker"
+version = "0.1.0"
+description = ""
+authors = ["Alec"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+confluent-kafka = "^2.3.0"
+jsonschema = "^4.20.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.26.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
