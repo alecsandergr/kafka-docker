@@ -84,4 +84,3 @@ if __name__ == "__main__":
     # Create topic if it doesn't exist
     if not topic_exists(admin, topic_name):
         create_topic(topic_name, admin, replication_factor=3)
-        create_topic(topic_name, admin, replication_factor=3)
