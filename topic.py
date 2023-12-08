@@ -14,10 +14,10 @@ def create_admin_client(servers: Optional[list] = None) -> AdminClient:
     Defines the admin client.
 
     Args:
-        servers (list, optional): list of brokers. Defaults to KAFKA_BOOTSTRAP_SERVERS.
+        servers (list, optional): list of brokers. Defaults to None.
 
     Returns:
-        AdminClient: admin
+        AdminClient: a new AdminClient instance.
     """
 
     if servers is not None:
@@ -27,18 +27,18 @@ def create_admin_client(servers: Optional[list] = None) -> AdminClient:
 
 
 # return True if topic exists and False if not
-def topic_exists(admin: AdminClient, topic: str) -> bool:
+def topic_exists(admin_client: AdminClient, topic: str) -> bool:
     """
     Check if topic exists.
 
     Args:
-        admin (AdminClient): admin client.
+        admin_client (AdminClient): an AdminClient instance.
         topic (str): name of the topic.
 
     Returns:
         bool: if topic exists.
     """
-    metadata = admin.list_topics()
+    metadata = admin_client.list_topics()
     for t in iter(metadata.topics.values()):
         if t.topic == topic:
             return True
@@ -52,13 +52,13 @@ def create_topic(
     replication_factor: int = 1,
 ):
     """
-    Generate a topic.
+    Generates a topic.
 
     Args:
-        topic_name (str): Name of the topic.
-        num_partitions (int): Number of partitions.
-        replication_factor (int): Replication factor (number of brokers).
-        admin_client (AdminClient): AdminClient instance.
+        topic (str): Name of the topic to create.
+        admin_client (AdminClient): an AdminClient instance.
+        num_partitions (int, optional): Number of partitions. Defaults to 1.
+        replication_factor (int, optional): Replication factor. Defaults to 1.
     """
 
     new_topic = NewTopic(
